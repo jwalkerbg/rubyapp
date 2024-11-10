@@ -13,7 +13,7 @@ module Rubyapp
   class Error < StandardError
     attr_reader :message, :subject
 
-    def initialize(message, subject = '')
+    def initialize(message, subject = "")
       @message = message
       @subject = subject
       super()
