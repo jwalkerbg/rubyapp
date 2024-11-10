@@ -18,7 +18,10 @@ module Rubyapp
       give_up if args.nil?
       print_version if args["version"]
 
-      cfgfile = args["config"]&.then { |config| cfg.load_toml_file(config) }
+      if args["config"]
+        cfgfile = cfg.load_toml_file(args["config"])
+        give_up unless cfgfile
+      end
 
       # Merging options
       cfgfile&.then { |cf| cfg.deep_merge(cf) }
