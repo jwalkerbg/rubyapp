@@ -11,7 +11,7 @@ module LoggerConfig
     @logger ||= Logger.new($stdout).tap do |log|
       log.level = Logger::DEBUG
       log.datetime_format = "%Y-%m-%d %H:%M:%S"
-      log.formatter = proc do |severity, datetime, progname, msg|
+      log.formatter = proc do |severity, datetime, _progname, msg|
         caller_location = caller_locations.detect do |location|
           !location.path.include?("logger.rb")
         end
