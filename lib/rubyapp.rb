@@ -6,6 +6,7 @@ require "toml-rb"
 require_relative "rubyapp/config"
 require_relative "rubyapp/cli"
 require_relative "rubyapp/version"
+require_relative "rubyapp/logging"
 
 module Rubyapp
   # Application Error handler
