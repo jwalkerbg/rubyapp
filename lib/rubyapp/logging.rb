@@ -12,7 +12,12 @@ module LoggerConfig
       log.level = Logger::DEBUG
       log.datetime_format = "%Y-%m-%d %H:%M:%S"
       log.formatter = proc do |severity, datetime, progname, msg|
-        "#{datetime} #{severity} #{progname}: #{msg}\n"
+        caller_location = caller_locations.detect do |location|
+          !location.path.include?("logger.rb")
+        end
+        file = caller_location.path.split("/").last
+        line = caller_location.lineno
+        "#{datetime} #{severity} #{file}:#{line} : #{msg}\n"
       end
     end
   end
