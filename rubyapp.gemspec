@@ -37,6 +37,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "json"
   spec.add_dependency "json-schema", "~> 5.0"
   spec.add_dependency "logger", "~> 1.6"
+  spec.add_dependency "ruby-lsp"
   spec.add_dependency "toml-rb", "~> 3.0"
 
   # For more information and examples about making a new gem, check out our
