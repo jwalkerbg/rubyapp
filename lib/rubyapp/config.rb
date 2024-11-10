@@ -85,23 +85,23 @@ module Rubyapp
       begin
         config = TomlRB.load_file(file_path)
       rescue TomlRB::ParseError => e
-        puts "TOML parsing error: #{e.message}"
+        logger.error("TOML parsing error: #{e.message}")
         return nil
       rescue Errno::ENOENT => e
-        puts "File not found: #{file_path}, #{e.message}"
+        logger.error("File not found: #{file_path}, #{e.message}")
         return nil
       rescue StandardError => e
-        puts "An unexpected error occurred: #{e.message}"
+        logger.error("An unexpected error occurred: #{e.message}")
         return nil
       end
 
       # Validate the data against the JSON schema
       begin
         JSON::Validator.validate!(schema, config)
-        puts "Configuration is valid."
+        logger.info("Configuration is valid.")
         config # Return the loaded configuration
       rescue JSON::Schema::ValidationError => e
-        puts "Validation error: #{e.message}"
+        logger.error("Validation error: #{e.message}")
         nil
       end
     end

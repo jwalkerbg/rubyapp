@@ -9,27 +9,10 @@ require_relative "rubyapp/version"
 require_relative "rubyapp/logging"
 
 module Rubyapp
-  # Application Error handler
-  class Error < StandardError
-    attr_reader :message, :subject
-
-    def initialize(message, subject = "")
-      @message = message
-      @subject = subject
-      super()
-    end
-
-    # print_message composes and prints error message
-    def print_message
-      mess = @message
-      mess += ": #{@subject}" unless @subject.empty
-      puts mess
-    end
-  end
-
   # Mainclass contains main function from which start app execution
   class Mainclass
     def main
+      logger.info "Start of main"
       cfg = Config.new
       args = CommandLineParser.parse
       give_up if args.nil?
@@ -45,7 +28,7 @@ module Rubyapp
     end
 
     def give_up
-      puts "Giving up."
+      logger.info("Giving up.")
       exit
     end
 
@@ -56,8 +39,8 @@ module Rubyapp
 
     # Application code begins execution here, using configuration options as a hash object
     def run_app(cfg)
-      puts "Running #{Rubyapp::NAME} with following options:"
-      puts cfg
+      logger.info("Running #{Rubyapp::NAME} with following options:")
+      logger.info(cfg)
 
       # Implement application business logic here.
     end

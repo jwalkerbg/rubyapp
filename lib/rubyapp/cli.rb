@@ -34,7 +34,7 @@ module Rubyapp
         opt_parser.parse!
       rescue OptionParser::InvalidOption, OptionParser::NeedlessArgument, OptionParser::InvalidArgument,
              OptionParser::MissingArgument, OptionParser::AmbiguousOption => e
-        puts e
+        logger.error(e)
         parameters = nil
       end
       parameters
