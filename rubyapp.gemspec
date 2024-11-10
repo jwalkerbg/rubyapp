@@ -3,7 +3,7 @@
 require_relative "lib/rubyapp/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "rubyapp"
+  spec.name = Rubyapp::NAME
   spec.version = Rubyapp::VERSION
   spec.authors = ["Ivan Cenov"]
   spec.email = ["i_cenov@botevgrad.com"]
