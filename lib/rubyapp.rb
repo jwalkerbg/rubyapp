@@ -28,6 +28,7 @@ module Rubyapp
       cfg.merge_cli_options(args)
 
       run_app(cfg.configuration)
+      logger.info("End of main")
     end
 
     def give_up
