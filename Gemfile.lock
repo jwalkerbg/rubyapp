@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     rubyapp (0.1.0)
-      json
+      json (~> 2.8)
       json-schema (~> 5.0)
       logger (~> 1.6)
       ruby-lsp
