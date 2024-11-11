@@ -8,17 +8,17 @@ Gem::Specification.new do |spec|
   spec.authors = ["Ivan Cenov"]
   spec.email = ["i_cenov@botevgrad.com"]
 
-  spec.summary = "TODO: Write a short summary, because RubyGems requires one."
-  spec.description = "TODO: Write a longer description or delete this line."
-  spec.homepage = "TODO: Put your gem's website or public repo URL here."
+  spec.summary = "Ryby skeleton of CLI application"
+  spec.description = "Ruby skeleton of CLI application. Uses TOML file for configuration."
+  spec.homepage = "https://github.com/jwalkerbg/rubyapp.git"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.0.0"
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
+  spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
-  spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
+  spec.metadata["source_code_uri"] = "https://github.com/jwalkerbg/rubyapp.git"
+  spec.metadata["changelog_uri"] = "https://github.com/jwalkerbg/rubyapp/blob/master/README.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
@@ -34,7 +34,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   # Uncomment to register a new dependency of your gem
-  spec.add_dependency "json"
+  spec.add_dependency "json", "~> 2.8"
   spec.add_dependency "json-schema", "~> 5.0"
   spec.add_dependency "logger", "~> 1.6"
   spec.add_dependency "ruby-lsp"
