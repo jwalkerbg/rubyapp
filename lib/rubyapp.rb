@@ -42,8 +42,7 @@ module Rubyapp
 
     # Application code begins execution here, using configuration options as a hash object
     def run_app(cfg)
-      logger.info("Running #{Rubyapp::NAME} with following options:")
-      logger.info(cfg)
+      logger.info("Running #{Rubyapp::NAME} with following options:\n#{JSON.pretty_generate(cfg)}")
 
       # Implement application business logic here.
     end
