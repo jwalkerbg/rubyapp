@@ -1,8 +1,18 @@
 # Rubyapp
 
-TODO: Delete this and the text below, and describe your gem
+- [Rubyapp](#rubyapp)
+  - [Introduction](#introduction)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Configuration](#configuration)
+  - [Development](#development)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Code of Conduct](#code-of-conduct)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rubyapp`. To experiment with that code, run `bin/console` for an interactive prompt.
+## Introduction
+
+This project is a simple skeleton of Ruby gem which has CLI interface. Is is used as a skeleton for developing Ruby gems with CLI interface. It has a simple system of runtime configuration.
 
 ## Installation
 
@@ -22,7 +32,30 @@ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
 
 ## Usage
 
-TODO: Write usage instructions here
+Run
+
+```bash
+bundle exec rubyapp --help
+```
+
+to see command line interface options. As this is a skeleton gem, there are two sample options - `param1` and `param2` of `Intereger` type. Two more options are available, that should not depend on concrete application:
+
+* `--version` - shows application name and version and stops.
+* `--verbose` - activates verbose logging. What should be logged or not logged depends on this option.
+
+## Configuration
+
+Application configuration is a nested hash table, presented as a JSON object. It consists of thre parts
+
+* Default hardcoded configuration
+* Configuration file with TOML format.
+* command line options.
+
+The default configuration comes with the gem. It contains **all** options with predefined values. The configuration file can contain parts or all options from the default configuration eventually with other values. By now the file cannot contains options that do not present in the default configuration. At last command line options can contain part or all of default options. TOML content is validated against JSON validation schema. The validation guaranties configurarion structure integrity across the application and simplifies configuration usage.
+
+Options in TOML file override the default options, and options given at command line override previous two.
+
+The application uses configuration with default file name, **config.toml**. A dedicated option `--config FILE` may be used to select other configuration file. Other option `--no-config` makes the application to skip using configuration file.
 
 ## Development
 
