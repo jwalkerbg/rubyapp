@@ -5,7 +5,8 @@ require "json-schema"
 
 # Rubyapp - application nmodule
 module Rubyapp
-  class Config
+  # Config: Configuration handler
+  class Config # rubocop:disable Metrics/ClassLength
     attr_accessor :configuration
 
     def initialize
@@ -110,12 +111,6 @@ module Rubyapp
       self.configuration = _deep_merge(configuration, override)
     end
 
-    def _deep_merge(original, override)
-      original.merge(override) do |_, old, new|
-        old.is_a?(Hash) && new.is_a?(Hash) ? _deep_merge(old, new) : new
-      end
-    end
-
     def merge_cli_options(args)
       return unless args
 
@@ -134,7 +129,7 @@ module Rubyapp
       end
     end
 
-=begin
+=begin # rubocop:disable Style/BlockComments
     variant that allow individual copy with multiple levels of nesting in configuration
     def merge_cli_options(args)
       return unless args
@@ -146,5 +141,13 @@ module Rubyapp
       configuration["parameters"]["param2"] = args["param2"] if args.include?("param2")
     end
 =end
+
+    private
+
+    def _deep_merge(original, override)
+      original.merge(override) do |_, old, new|
+        old.is_a?(Hash) && new.is_a?(Hash) ? _deep_merge(old, new) : new
+      end
+    end
   end
 end
