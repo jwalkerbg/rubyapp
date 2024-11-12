@@ -5,7 +5,7 @@ require "optparse"
 module Rubyapp
   # CommandLineParser of CLI options
   class CommandLineParser
-    def self.parse
+    def self.parse # rubocop:disable Metrics/MethodLength
       parameters = { "config" => "config.toml" }
 
       opt_parser = OptionParser.new do |opt|
