@@ -33,12 +33,10 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  # Uncomment to register a new dependency of your gem
   spec.add_dependency "bigdecimal", "~>3.1"
   spec.add_dependency "json", "~> 2.8"
   spec.add_dependency "json-schema", "~> 5.0"
   spec.add_dependency "logger", "~> 1.6"
-  spec.add_dependency "ruby-lsp"
   spec.add_dependency "toml-rb", "~> 3.0"
 
   # For more information and examples about making a new gem, check out our
