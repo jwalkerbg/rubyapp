@@ -12,7 +12,6 @@ module Rubyapp
   # Mainclass contains main function from which start app execution
   class Mainclass
     def main
-      logger.info "Start of main"
       cfg = Config.new
       args = CommandLineParser.parse
       give_up if args.nil?
@@ -28,7 +27,7 @@ module Rubyapp
       cfg.merge_cli_options(args)
 
       run_app(cfg.configuration)
-      logger.info("End of main")
+      logger.info("Finished")
     end
 
     def give_up
@@ -44,7 +43,7 @@ module Rubyapp
     # Application code begins execution here, using configuration options as a hash object
     def run_app(cfg)
       if cfg["logging"]["verbose"]
-        logger.info("Running #{Rubyapp::NAME} with following options:\n#{JSON.pretty_generate(cfg)}")
+        logger.info("Running #{Rubyapp::NAME} with following configuration:\n#{JSON.pretty_generate(cfg)}")
       end
 
       # Implement application business logic here.
