@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require "optparse"
-require "json"
-require "toml-rb"
 require_relative "rubyapp/config"
 require_relative "rubyapp/cli"
 require_relative "rubyapp/version"
