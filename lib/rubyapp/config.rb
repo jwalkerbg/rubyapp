@@ -16,7 +16,7 @@ module Rubyapp
     DEFAULT_CONFIG = {
       "template" => {
         "template_name" => "rubyapp",
-        "template_version" => "0.1.0",
+        "template_version" => "0.1.1",
         "template_description" => {
           "text" => "Template with CLI interface, configuration options in a file, logger and unit tests",
           "content-type" => "text/plain"
