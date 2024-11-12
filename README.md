@@ -5,6 +5,7 @@
   - [Installation](#installation)
   - [Usage](#usage)
   - [Configuration](#configuration)
+    - [Template](#template)
   - [Development](#development)
     - [Control flow](#control-flow)
     - [Add new options/parameters](#add-new-optionsparameters)
@@ -70,6 +71,16 @@ More about TOML syntax:
 * [Learn X in Y minutes](https://learnxinyminutes.com/docs/toml/)
 
 It is important to have default values for all options / parameters hat can appear in TOML files or command-line options.
+
+### Template
+
+When executing
+
+```bash
+bundle exec rubyapp --verbose
+```
+
+aplication configuration will be shown. First sub-object will be `"template"`. This object contains information about the skeleton `rubyapp`. This information is not for the application developed from the skeletopn. Application name and version are in `lib/rubyapp/version.rb`. Template name and version can be used to know what base the aplication stays on.
 
 ## Development
 
