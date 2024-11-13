@@ -12,6 +12,9 @@ group :test do
 end
 
 group :development do
+  gem "debug", "~> 1.9"
   gem "rubocop", "~> 1.21"
   gem "ruby-lsp", ">= 0.21"
+  # gem "solargraph", "~> 0.50"
+  gem "yard", "~> 0.9"
 end
